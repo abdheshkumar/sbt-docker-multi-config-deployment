@@ -2,7 +2,8 @@ name := "my-app"
 libraryDependencies += "com.typesafe" % "config" % "1.3.0"
 
 enablePlugins(JavaAppPackaging)
-
+enablePlugins(AshScriptPlugin)
+dockerBaseImage := "openjdk:8-jre-alpine"
 //javaOptions will be copied in /opt/docker/conf/application.ini
 javaOptions in Universal ++= Seq(
   s"-Dconfig.file=/opt/docker/conf/application.conf"
